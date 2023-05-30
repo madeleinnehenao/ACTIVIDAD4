@@ -28,7 +28,7 @@ public class Cuenta {
     public void Consign_money(float amount){
         
         Saldo=Saldo + amount;
-        Nconsignments=Nconsignments+1;
+        Nconsignments++;
     }
     
     /*Método que recibe una cantidad de dinero a retirar y actualiza el
@@ -38,7 +38,7 @@ public class Cuenta {
         if(amount1<=NewSaldo){
             
             Saldo-=amount1; 
-            Nwithdrawals+=1;
+            Nwithdrawals++;
         }else{
             System.out.println("La cantida a retirar excede el saldo actual");
         }
