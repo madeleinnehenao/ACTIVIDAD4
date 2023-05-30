@@ -24,9 +24,12 @@ public class CuentaCorriente extends Cuenta {
         if(result<0){
             overdraft+=Math.abs(result);
             Saldo=0;
+            Nwithdrawals++;
+
         }else{
             super.Withdraw_money(amount2);
         }
+       
     }
     
     /*Método que recibe una cantidad de dinero a consignar y actualiza
@@ -41,9 +44,11 @@ public class CuentaCorriente extends Cuenta {
                 overdraft=-amount2;
                 Saldo=0;
             }
+            
         }else{
             super.Consign_money(amount2);
         }
+        Nconsignments++;
     }
     /*Método que genera el extracto mensual de la cuenta*/
     public void Monthly_statement1(){
@@ -53,7 +58,8 @@ public class CuentaCorriente extends Cuenta {
     /*Método que muestra en pantalla los datos de una cuenta corriente*/
     public void print1(){
         System.out.println("El Saldo de la cuenta es: $"+Saldo);
-        System.out.println("El número de transacciones realizadas: ");
+        System.out.println("El numero de transacciones realizadas: "+ 
+                (Nconsignments+Nwithdrawals));
         System.out.println("El valor del sobregiro es: "+overdraft);
     }
 }
